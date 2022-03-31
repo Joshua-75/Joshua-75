@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>VueJs : Exercice Editeur de texte</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="02-ExerciceEditeurTexte.css" media="all" />
+</head>
+
+<body>
+    <!-- v-cloak : cache toute liaison de données (databinding) non compilée ({{tag}})  jusqu'a ce que l'instance de
+    Vue soit prete-->
+    <div id="app" v-cloak v-on:click="hideInfobulle">
+        <!-- v-on:click.stop : c'est un getionnaire d'événements pour les clics, avec un modificateur qui arrete 
+        la propagation des événements -->
+        <!-- v-if s'assure que l'infobulle n'est affichée que si la variable "show_infobulle" est vraie-->
+        <div class="tooltip" v-on:click.stop v-if="show_infobulle">
+            <!-- v-model va lier le contenu du champ de texte avec le modèle text_content 
+        toute modification du champ de texte met automatiquement à jour la valeur-->
+            <input type="text" v-model="text_content">
+        </div>
+        <!-- Losrsue le paragraphe est cliqué , on appelle la méthode "toggleInfobulle" et on arrete la propagation
+        de l'évenement 
+        l'interpolation {{}} sera remplacée par la valeur "text_content" et elle sera mise à jour automatiquement
+        pour afficher tout changement apporté à cette variable.
+        -->
+        <p v-on:click.stop="toggleInfobulle"> {{text_content}}</p>
+    </div>
+    <script src="02-ExerciceEditeurTexte.js">
+    </script>
+</body>
+
+</html>
