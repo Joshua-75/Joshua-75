@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>VueJs Exercice Formulaire de Commande</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="03-ExerciceFormulaireCommande.css" media="all" />
+</head>
+
+<body>
+
+    <form id="main" v-cloak>
+        <h1>Services</h1>
+
+        <ul>
+            <!-- faire une boucle sur le tableau des services, attribuer un évenement de click et définir
+                 ou supprimer la classe de css "active" -->
+            <li v-for="service in services" 
+                v-on:click="toggleActive(service)" 
+                v-bind:class="{'active' : service.active}">
+                <!-- Afficher le nom et le prix de chaque élement du tableau "services"-->
+                {{service.nom}} <span>{{ service.prix | devise }}</span>
+            </li>
+        </ul>
+        <div class="total">
+            <!-- Calculer le prix total de tous les services choisis et le formater en tant que devise-->
+            Total: <span>{{total() | devise}}</span>
+        </div>
+    </form>
+    <script src="03-ExerciceFormulaireCommande.js ">
+    </script>
+</body>
+
+</html>
