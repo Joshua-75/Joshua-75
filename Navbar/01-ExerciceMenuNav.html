@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>VueJs : Exercice Menu Navigation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.0/vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="01-ExerciceMenuNav.css" media="all" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- Le menu de navigation obtiendra la valeur de la variable "active" en tant que classe -->
+        <!-- Pour empecher la page de sauter lorsqu'un lien est cliqué on a utilisé le modificateur "prevent" -->
+        <nav v-bind:class="active" v-on:click.prevent>
+            <a href="#" class="accueil" v-on:click="isActive('accueil')">Accueil</a>
+            <a href="#" class="projets" v-on:click="isActive('projets')">Projets</a>
+            <a href="#" class="services" v-on:click="isActive('services')">Services</a>
+            <a href="#" class="contact" v-on:click="isActive('contact')">Contact</a>
+        </nav>
+        <!-- L'expression entre les deux accolades {{}} sera remplacée par la valeur 'active' et sera automatiquement
+        mise à jours pour refléter les changements   -->
+        <p>Vous avez choisi <b>{{active}}</b></p>
+    </div>
+    <script src="01-ExerciceMenuNav.js">
+    </script>
+</body>
+
+</html>
